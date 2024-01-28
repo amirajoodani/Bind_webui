@@ -1,0 +1,19 @@
+$TTL    86400
+@       IN      SOA     ns.nextdevops.local. root.nextdevops.local. (
+                         200101         ; Serial
+                         21600          ; Refresh
+                         3600           ; Retry
+                         604800         ; Expire
+                         86400 )        ; Negative Cache TTL
+;
+;Name Server Information
+@        IN      NS      ns.nextdevops.local.
+;IP address of Name Server
+ns      IN      A       192.168.1.113
+;Mail Exchanger
+@       IN     MX   10   mail.nextdevops.local.
+;A – Record HostName To Ip Address
+www     IN       A      192.168.1.113
+mail    IN       A      192.168.1.113
+;CNAME record
+ftp     IN      CNAME   www.nextdevops.local.

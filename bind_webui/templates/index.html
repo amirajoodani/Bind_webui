@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  text-align: left;
+  background: #808080;
+  color: white;
+  font-size: 12px;
+
+}
+
+logout {
+  text-align: left;
+}
+
+
+/* Page Content */
+.content {padding:5px;}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+    <div class="header">
+	    <h1>DNS Records</h1>
+	    <form action="{{ url_for('logout') }}" method="get">
+      <input class="logout" type="submit" value="Logout">
+    </form>
+
+    </div>
+{% if logged_in %}
+    <p>Welcome</p>
+
+    <br>
+  {% else %}
+    <p>You need to log in first.</p>
+    <p><a href="{{ url_for('login') }}">Login</a></p>
+  {% endif %}
+<!-- Example index.html content with table -->
+<table>
+  <thead>
+    <tr>
+      <th>Records</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+      <tr>
+        <td>{{ record.line }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+    
+</body>
+</html>
+
